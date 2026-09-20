@@ -1,0 +1,10 @@
+{
+  "name": "Remix Weather Intelligence",
+  "description": "Production-ready weather forecasting and activity recommendation engine powered by Open-Meteo API.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

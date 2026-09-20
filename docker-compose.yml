@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  weather-intelligence:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: weather_intelligence_app
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

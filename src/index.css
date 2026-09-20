@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-950: var(--color-canvas);
+  --color-slate-900: var(--color-surface-card);
+  --color-slate-800: var(--color-border);
+  --color-slate-700: var(--color-border-subtle);
+  --color-cyan-300: var(--color-accent-light);
+  --color-cyan-400: var(--color-accent);
+  --color-cyan-500: var(--color-accent-base);
+  --color-cyan-600: var(--color-accent-dark);
+  --color-cyan-800: var(--color-accent-border);
+  --color-cyan-900: var(--color-accent-muted);
+  --color-cyan-950: var(--color-accent-bg);
+}
+
+:root,
+[data-theme="sapphire"] {
+  --color-canvas: #070b19;
+  --color-surface-card: #0d152d;
+  --color-border: #1a274c;
+  --color-border-subtle: #243666;
+  --color-accent-light: #93c5fd;
+  --color-accent: #60a5fa;
+  --color-accent-base: #3b82f6;
+  --color-accent-dark: #2563eb;
+  --color-accent-border: #1d4ed8;
+  --color-accent-muted: #1e3a8a;
+  --color-accent-bg: #172554;
+}
+
+[data-theme="aurora"] {
+  --color-canvas: #050d0a;
+  --color-surface-card: #091913;
+  --color-border: #133226;
+  --color-border-subtle: #1e4938;
+  --color-accent-light: #6ee7b7;
+  --color-accent: #34d399;
+  --color-accent-base: #10b981;
+  --color-accent-dark: #059669;
+  --color-accent-border: #047857;
+  --color-accent-muted: #064e3b;
+  --color-accent-bg: #022c22;
+}
+
+[data-theme="twilight"] {
+  --color-canvas: #0c0717;
+  --color-surface-card: #160e29;
+  --color-border: #2a1b4d;
+  --color-border-subtle: #3b266b;
+  --color-accent-light: #d8b4fe;
+  --color-accent: #c084fc;
+  --color-accent-base: #a855f7;
+  --color-accent-dark: #9333ea;
+  --color-accent-border: #7e22ce;
+  --color-accent-muted: #581c87;
+  --color-accent-bg: #3b0764;
+}
+
+[data-theme="ember"] {
+  --color-canvas: #120c07;
+  --color-surface-card: #1c140c;
+  --color-border: #382618;
+  --color-border-subtle: #4d3420;
+  --color-accent-light: #fcd34d;
+  --color-accent: #fbbf24;
+  --color-accent-base: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-accent-border: #b45309;
+  --color-accent-muted: #78350f;
+  --color-accent-bg: #451a03;
+}
+
+[data-theme="slate"] {
+  --color-canvas: #020617;
+  --color-surface-card: #0f172a;
+  --color-border: #1e293b;
+  --color-border-subtle: #334155;
+  --color-accent-light: #67e8f9;
+  --color-accent: #22d3ee;
+  --color-accent-base: #06b6d4;
+  --color-accent-dark: #0891b2;
+  --color-accent-border: #0e7490;
+  --color-accent-muted: #155e75;
+  --color-accent-bg: #083344;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-subtle);
+}
+
+::selection {
+  background: var(--color-accent-base);
+  color: #ffffff;
+}
+
+/* ==========================================================
+   Subtle Weather Icon Keyframe Animations
+   ========================================================== */
+
+/* 1. Gentle Sun Continuous Rotation */
+@keyframes weather-sun-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 2. Gentle Moon Sway & Shimmer */
+@keyframes weather-moon-sway {
+  0%, 100% {
+    transform: rotate(-4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-1.5px);
+  }
+}
+
+/* 3. Partly Cloudy Floating Sun/Moon & Cloud */
+@keyframes weather-cloud-sun-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+/* 4. Overcast Cloud Horizontal Drift */
+@keyframes weather-cloud-drift {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2.5px);
+  }
+}
+
+/* 5. Atmospheric Mist / Fog Drift & Density Pulse */
+@keyframes weather-fog-drift {
+  0%, 100% {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+}
+
+/* 6. Light Drizzle Delicate Oscillation */
+@keyframes weather-drizzle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
+}
+
+/* 7. Rain Dynamic Downward Pulse */
+@keyframes weather-rain-drop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+/* 8. Thunderstorm Electrical Flash & Energy Spike */
+@keyframes weather-thunder-flash {
+  0%, 88%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(251, 191, 36, 0));
+  }
+  90% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.85));
+  }
+  92% {
+    transform: scale(0.98);
+    filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.3));
+  }
+  95% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.95));
+  }
+}
+
+/* 9. Snow Flutter & Rocking Motion */
+@keyframes weather-snow-flutter {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(1.5px) rotate(3deg);
+  }
+}
+
+/* 10. Delicate Snowflake Crystal Rotation */
+@keyframes weather-snowflake-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation utility classes with GPU acceleration hints */
+.weather-anim-sun {
+  animation: weather-sun-spin 24s linear infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-moon {
+  animation: weather-moon-sway 6s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-cloud-sun {
+  animation: weather-cloud-sun-float 4.5s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-cloud {
+  animation: weather-cloud-drift 4s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-fog {
+  animation: weather-fog-drift 5s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.weather-anim-drizzle {
+  animation: weather-drizzle-float 2.2s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-rain {
+  animation: weather-rain-drop 1.8s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-lightning {
+  animation: weather-thunder-flash 3.5s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform, filter;
+}
+
+.weather-anim-snow {
+  animation: weather-snow-flutter 3.5s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.weather-anim-snowflake {
+  animation: weather-snowflake-spin 14s linear infinite;
+  transform-origin: center;
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .weather-anim-sun,
+  .weather-anim-moon,
+  .weather-anim-cloud-sun,
+  .weather-anim-cloud,
+  .weather-anim-fog,
+  .weather-anim-drizzle,
+  .weather-anim-rain,
+  .weather-anim-lightning,
+  .weather-anim-snow,
+  .weather-anim-snowflake {
+    animation: none !important;
+  }
+}
